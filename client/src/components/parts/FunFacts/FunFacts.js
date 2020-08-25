@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Funfacts.css";
+import "./Funfacts.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode,faMugHot} from "@fortawesome/free-solid-svg-icons";
 import {faClock} from "@fortawesome/free-regular-svg-icons";

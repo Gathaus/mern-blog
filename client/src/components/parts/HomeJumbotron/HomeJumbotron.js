@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import a from "./HomeJumbotron.css";
+import a from "./HomeJumbotron.scss";
 
 class HomeJumbotron extends Component {
 	render() {
 		return (
 			<>
-				<section className="jumbotron">
+				<section className="jumbotron home-jumbotron">
 					<div className="container">
 						<div className="row">
 							<div className="image-box col-md-5">
 								<img
 									className="about-me-image-detail about-me-image img-fluid"
-									src="https://lmpixels.com/wp/leven-wp/wp-content/uploads/2019/12/cesar-rincon-1024x1024.jpg"
+									src="https://via.placeholder.com/500"
 									alt="Responsive image"
 								/>
 							</div>

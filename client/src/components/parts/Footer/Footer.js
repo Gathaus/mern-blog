@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Footer.css";
+import "./Footer.scss";
 
 export default class Footer extends Component {
 	render() {
@@ -16,7 +16,7 @@ export default class Footer extends Component {
 								</div>
 							</div>
 							<div className="col-md-5 text-right footer-text-container">
-								<p className="footer-text">  © 2020 All rights reserved. LMPixels.</p>
+								<p className="footer-text">  © 2020 All rights reserved by Rıza Mert Yağcı</p>
 							</div>
 						</div>
 					</div>
