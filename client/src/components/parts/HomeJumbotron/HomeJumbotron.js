@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./HomeJumbotron.css";
+import a from "./HomeJumbotron.css";
 
 class HomeJumbotron extends Component {
 	render() {
@@ -24,9 +24,14 @@ class HomeJumbotron extends Component {
 									ullamcorper felis, ut venenatis purus ex eu mi. Quisque
 									imperdiet lacinia urna, a placerat sapien pretium eu.
 								</p>
-								<button type="button" className="btn btn-dark contact-btn">
-									Contact
-								</button>
+								<div className="row">
+									<button
+										type="button"
+										className="ml-2 btn btn-dark contact-btn"
+									>
+										Contact
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
