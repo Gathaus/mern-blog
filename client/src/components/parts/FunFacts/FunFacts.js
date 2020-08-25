@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Funfacts.css";
 
 class FunFacts extends Component {
-
 	render() {
 		return (
 			<>
@@ -21,13 +20,14 @@ class FunFacts extends Component {
 						</div>
 					</div>
 				</div>
-
-				<div className="row cards">
-					<div className="col-md-4">
-						
+				<div className="container">
+					<div className="row cards">
+						<div className="col-md-4">
+							<div class="card"></div>
+						</div>
+						<div className="col-md-4"></div>
+						<div className="col-md-4"></div>
 					</div>
-					<div className="col-md-4"></div>
-					<div className="col-md-4"></div>
 				</div>
 			</>
 		);
