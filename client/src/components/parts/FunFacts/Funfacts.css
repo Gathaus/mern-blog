@@ -1,0 +1,167 @@
+
+
+body{
+  background: #F4F4F4;
+  margin: 200px 60px 60px;
+}
+
+section{
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+}
+
+.card{
+  cursor: default!important;
+  width: 280px;
+  height: 400px;
+  background: #FFF;
+  margin-right: 16px;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.15);
+  transform: translateY(0px);
+  transition: all 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.card:hover{
+  box-shadow: 0px 35px 60px 0px rgba(0,0,0,0.15);
+  transform: translateY(-10px);
+}
+
+.card_title{
+  text-align: center;
+  padding: 16px 0;
+  position: relative;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 32px;
+  transition: top 300ms;
+  top: 0;
+}
+
+.card_title:after{
+  content: 'More info in your trip summary';
+  display: block;
+  width: 200px;
+  font-size: 14px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -20px);
+  transition: all 300ms;
+  opacity: 0;
+}
+
+.card_visual{
+  background: #eee;
+  height: 128px;
+  position: relative;
+}
+
+.card_visual:after{
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: #F1CA0B;
+  border-radius: 50%;
+  position: absolute;
+  top: 88px;
+  right: 16px;
+  transition: top 300ms;
+}
+
+.card_badge{
+  width: 248px;
+  height: 32px;
+  margin: 16px auto;
+  background-image: linear-gradient(-90deg, #CF2E1D 0%, #A50000 100%);
+  border-radius: 4px;
+}
+
+.card_products{
+  list-style-type: none;
+  display: block;
+  padding: 0 16px;
+  margin:0;
+  background: #fff;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  transition: transform 300ms;
+}
+
+.card_product{
+  padding: 12px 0 12px 24px;
+  position: relative;
+  display: block;
+  transition: all 300ms;
+}
+
+.card_product:not(:last-child):before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #bbb;
+  border-radius: 50%;
+  left: 0;
+}
+
+.card_product:first-child{
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+}
+
+.card_product:last-child{
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: #2091EB;
+  padding: 16px 0;
+}
+
+.card_product:nth-child(2){
+  border-bottom: 1px solid #ddd;
+}
+
+.card:hover .card_products{
+   transition-delay:1s;
+  transform: translateY(-50px); 
+}
+
+/* .card:hover .card_product:not(:last-child){
+  border-bottom: 1px solid #ddd;
+} */
+
+.card:hover .card_product:hover{
+  color: #2091EB;
+}
+
+.card:hover .card_product:first-child{
+  transition-delay:1s;
+  color: #CF2E1D;
+/*   text-decoration: underline; */
+}
+
+.card:hover .card_visual:after{
+/*   transition-delay:1s;
+  top: 16px; */
+}
+
+.card:hover .card_title{
+  top: -10px;
+}
+
+.card:hover .card_title:after{
+  opacity: 1;
+  transform: translate(-50%, -5px);
+}
+
+.card:hover .card_title:hover:after{
+  color: #2091EB;
+}
+
+
