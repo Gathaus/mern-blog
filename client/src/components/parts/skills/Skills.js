@@ -23,7 +23,7 @@ class skills extends Component {
 				<div className="container skill-part">
 					<div className="row">
 						<div className="col-md-5 ml-5">
-							<FontAwesomeIcon className="icon-layer" icon={faLayerGroup} />
+							<FontAwesomeIcon className="skills-icon" icon={faLayerGroup} />
 							<h4 className="skill-title">Full-Stack Web Development</h4>
 							<p>
 								Mauris neque libero, aliquet vel mollis nec, euismod sed tellus.
@@ -33,7 +33,7 @@ class skills extends Component {
 							</p>
 						</div>
 						<div className="col-md-5 ml-5">
-							<FontAwesomeIcon className="icon-layer" icon={faMobileAlt} />
+							<FontAwesomeIcon className="skills-icon" icon={faMobileAlt} />
 							<h4 className="skill-title">Mobile App Development</h4>
 							<p>
 								Mauris neque libero, aliquet vel mollis nec, euismod sed tellus.
@@ -45,7 +45,7 @@ class skills extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-5 ml-5">
-							<FontAwesomeIcon className="icon-layer" icon={faDesktop} />
+							<FontAwesomeIcon className="skills-icon" icon={faDesktop} />
 							<h4 className="skill-title">Desktop App Development</h4>
 							<p>
 								Mauris neque libero, aliquet vel mollis nec, euismod sed tellus.
@@ -55,7 +55,7 @@ class skills extends Component {
 							</p>
 						</div>
 						<div className="col-md-5 ml-5">
-							<FontAwesomeIcon className="icon-layer" icon={faCode} />
+							<FontAwesomeIcon className="skills-icon" icon={faCode} />
 							<h4 className="skill-title">Problem Solving</h4>
 							<p>
 								Mauris neque libero, aliquet vel mollis nec, euismod sed tellus.

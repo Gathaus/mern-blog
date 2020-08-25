@@ -29,7 +29,7 @@ class Navbar extends Component {
 					</button>
 
 					<div
-						className="collapse navbar-collapse mr-5"
+						className="collapse navbar-collapse"
 						id="navbarSupportedContent"
 					>
 						<ul className="navbar-nav ml-auto">
