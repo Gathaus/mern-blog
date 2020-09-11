@@ -5,11 +5,11 @@ export default class Footer extends Component {
 	render() {
 		return (
 			<>
-				<footer className="footer pt-2">
+				<footer className="footer pt-2 ">
 					<div className="container mt-2">
 						<div className="row d-flex justify-content-between">
-							<div className="col-md-3 footer-links text-center">
-								<div className="container ">
+							<div className="col-md-4 footer-links text-center">
+								<div className="container">
 									<a className="">Github</a>
 									<a className="">Instagram</a>
 									<a className="">Linkedin</a>

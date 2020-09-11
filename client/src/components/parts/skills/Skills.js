@@ -9,7 +9,7 @@ class skills extends Component {
 			<>
 				<div className="container">
 					<div className="row block-title">
-						<div className="col-md-3">
+						<div className="col-md-3 font-poppins">
 							<h2 className="text-center mr-4">My Skills</h2>
 						</div>
 					</div>
@@ -20,7 +20,7 @@ class skills extends Component {
 						</div>
 					</div>
 				</div>
-				<div className="container skill-part">
+				<div className="container skill-part font-poppins">
 					<div className="row">
 						<div className="col-md-5 ml-5">
 							<FontAwesomeIcon className="skills-icon" icon={faLayerGroup} />

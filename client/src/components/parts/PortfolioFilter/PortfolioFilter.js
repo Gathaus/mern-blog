@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./PortfolioFilter.css";
+import "./PortfolioFilter.scss";
 
 class PortfolioFilter extends Component {
 	render() {

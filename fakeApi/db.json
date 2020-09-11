@@ -1,0 +1,39 @@
+/*
+Api Structure for portfolio
+
+
+    "portfolioItems:
+            "title": "news",
+            "plainDescription: "lorem ipsum",
+            "tags": "Mern",
+
+*/
+
+{
+    "portfolioItems":[
+        {
+            "title": "news",
+            "plainDescription": "Lore Ipsum",
+            "ImageUrl": "https://picsum.photos/id/1084/536/354?grayscale",
+            "tags": "Mern"
+        },
+        {
+            "title": "news1",
+            "plainDescription": "Lore Ipsum1",
+            "ImageUrl": "https://picsum.photos/id/1084/536/354?grayscale",
+            "tags": "Mern1",
+        },
+        {
+            "title": "news2",
+            "plainDescription": "Lore Ipsum2",
+            "tags": "Mern2",
+            "ImageUrl": "https://picsum.photos/id/1084/536/354?grayscale"
+
+        },
+        {
+            "title": "news3",
+            "plainDescription": "Lore Ipsum3",
+            "tags": "Mern3"
+        }
+    ]
+}

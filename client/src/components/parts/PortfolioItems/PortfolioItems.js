@@ -21,7 +21,7 @@ class PortfolioItems extends Component {
 								<h6 class="blog-category blog-text-success">
 									<i class="far fa-newspaper"></i> News
 								</h6>
-								
+
 								<p class="blog-card-description">
 									Lorem Ipsum is simply dummy text of the printing and
 									typesetting industry.
@@ -39,7 +39,7 @@ class PortfolioItems extends Component {
 							</div>
 						</div>
 					</div>
-                    <div className="col-md-4">
+					<div className="col-md-4">
 						<div class="blog-card">
 							<div class="blog-card-image">
 								<a href="#">
@@ -54,7 +54,7 @@ class PortfolioItems extends Component {
 								<h6 class="blog-category blog-text-success">
 									<i class="far fa-newspaper"></i> News
 								</h6>
-								
+
 								<p class="blog-card-description">
 									Lorem Ipsum is simply dummy text of the printing and
 									typesetting industry.
@@ -71,10 +71,10 @@ class PortfolioItems extends Component {
 								</div>
 							</div>
 						</div>
-					</div><div className="col-md-4">
-						
 					</div>
-                </div>
+					
+					<div className="col-md-4"></div>
+				</div>
 			</div>
 		);
 	}

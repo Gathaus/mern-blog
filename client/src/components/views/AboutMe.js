@@ -4,6 +4,7 @@ import Skills from "../parts/skills/Skills";
 import FunFacts from "../parts/FunFacts/FunFacts";
 
 class AboutMe extends Component {
+
 	render() {
 		return (
 			<>
