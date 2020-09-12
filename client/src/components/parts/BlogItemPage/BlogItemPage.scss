@@ -1,0 +1,132 @@
+.blog-item-page {
+	padding-bottom: 10em;
+}
+
+.blog-item-page h3 {
+	color: #f5f5f5;
+}
+.blog-item-page .project-description {
+	background-color: #333;
+	border: 2px solid #444;
+	border-radius: 15px;
+	width: 19.75em;
+	height: 30em;
+	display: block;
+	position: relative;
+}
+
+.blog-item-page .project-description-container {
+	margin-top: 5.9em;
+}
+
+.blog-item-page .blog-title,
+.blog-item-page .project-description div {
+	background-color: transparent;
+}
+
+.blog-item-page .blog-title h3 {
+	font-size: 18px;
+	font-family: "Poppins", Helvetica, sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	color: #f5f5f5;
+}
+
+.blog-item-page .project-general-info {
+	list-style: none;
+	padding: 0;
+}
+
+.blog-item-page .container a {
+	margin: 0 3em 0 0;
+	font-size: 14px;
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: 0px;
+	color: #0099cc !important;
+	transition: color 0.2s ease-in-out !important;
+}
+
+.blog-item-page .container a:hover {
+	cursor: pointer;
+	zoom: 1 !important;
+	opacity: 1 !important;
+	color: #006699 !important;
+	text-decoration: none;
+}
+
+.blog-item-page .container a:visited {
+	text-decoration: none;
+}
+
+.blog-item-page .icon-project-info {
+	color: #0099cc;
+}
+
+.blog-item-page ul li:not(:first-child) {
+}
+
+.blog-item-page .project-date {
+	color: #d5d5d5;
+	font-family: "Poppins", Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 1.75em;
+}
+
+.blog-item-page .project-short-description {
+	color: #d5d5d5;
+	font-family: "Poppins", Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 1.75em;
+}
+
+.blog-item-page .project-tags {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.blog-item-page .project-tags a {
+	cursor: default !important;
+	display: inline-block;
+	font-size: 12px;
+	line-height: 1.5em;
+	color: #d5d5d5 !important;
+	padding: 2px 7px;
+	background-color: #666;
+	border-radius: 3px;
+	margin: 3px 2px 2px;
+}
+.blog-item-page .project-tags a:hover {
+	color: #d5d5d5 !important;
+}
+.blog-item-page .project-tags li {
+	display: inline;
+	border: 1px solid transparent;
+	color: #fff;
+}
+
+.blog-item-page .carousel-inner {
+	border-radius: 0.75em;
+}
+
+.blog-item-page .carousel .carousel-item {
+	height: 30em;
+}
+.blog-item-page .carousel .carousel-item img {
+	height: 30em;
+	object-fit: cover;
+}
+
+.blog-item-page .project-full-description {
+	color: #d5d5d5;
+	font-family: "Poppins", Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 1.75em;
+}

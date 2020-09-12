@@ -11,7 +11,7 @@ class HomeJumbotron extends Component {
 							<div className="image-box col-md-5 ml-5">
 								<img
 									className="about-me-image-detail about-me-image img-fluid"
-									src="https://via.placeholder.com/500"
+									src="https://via.placeholder.com/1920"
 									alt="Responsive image"
 								/>
 							</div>
