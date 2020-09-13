@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BlogItemPage from "../parts/BlogItemPage/BlogItemPage";
+import PortfolioWriteComment from "../parts/PortfolioWriteComment/PortfolioWriteComment";
 
 
 class BlogItem extends Component {
@@ -7,6 +8,7 @@ class BlogItem extends Component {
         return (
             <div>
                 <BlogItemPage/>
+                <PortfolioWriteComment/>
             </div>
         )
     }

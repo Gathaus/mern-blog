@@ -8,10 +8,11 @@ import Contact from "../views/Contact";
 import Navbar from "../parts/navbar/Navbar";
 import { Route, Switch } from "react-router-dom";
 import Footer from "../parts/Footer/Footer";
+import NotFound from "../views/NotFound";
 
 function App() {
 	return (
-			<div style={{position: "relative", minHeight: 100 + "vh"}}>
+			<div style={{position: "relative", minHeight: 100 + "vh", paddingBottom: 3 +"rem"}}>
 				<Navbar />
 				<Switch>
 					<Route exact path="/" component={AboutMe} />
@@ -21,6 +22,8 @@ function App() {
 					<Route exact path="/contact" component={Contact} />
 					<Route exact path="/blogitem" component={BlogItem} />
 					<Route exact path="/portfolioitem" component={PortfolioItem} />
+					<Route exact path="*" exact={true} component={NotFound} />
+
 
 				</Switch>
 				<Footer />

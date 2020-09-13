@@ -1,5 +1,5 @@
 .blog-item-page {
-	padding-bottom: 10em;
+    padding-bottom: 1em;
 }
 
 .blog-item-page h3 {
@@ -115,10 +115,10 @@
 }
 
 .blog-item-page .carousel .carousel-item {
-	height: 30em;
+	max-height: 30em;
 }
 .blog-item-page .carousel .carousel-item img {
-	height: 30em;
+	max-height: 30em;
 	object-fit: cover;
 }
 
