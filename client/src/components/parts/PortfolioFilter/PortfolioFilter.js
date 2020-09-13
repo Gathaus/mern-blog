@@ -1,33 +1,67 @@
 import React, { Component } from "react";
 import "./PortfolioFilter.scss";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import * as portfolioActions from "../../../redux/actions/portfolioActions";
 
 class PortfolioFilter extends Component {
+	componentDidMount() {
+		this.props.actions.portfolioGetCategories();
+	}
+
 	render() {
 		return (
 			<div className="container">
 				<div className="row d-flex justify-content-end mt-4 mr-5">
 					<ul className="portfolio-list">
-						<li className="portfolio-link">
-							<a className="portfolio-link-item">All</a>
+						{this.props.portfolioCategories.length > 0 ? (
+							this.props.portfolioCategories.map((category) => (
+								<li className="portfolio-link">
+									<Link to="#" className="portfolio-link-item">
+										{category.portfolioCategoryName}
+									</Link>
+								</li>
+							))
+						) : (
+							<div></div>
+						)}
+
+						{/* <li className="portfolio-link">
+							<Link to="#" className="portfolio-link-item">
+								All
+							</Link>
 						</li>
 						<li className="portfolio-link">
-							<a className="portfolio-link-item">Mern-Stack</a>
+							<Link to="#" className="portfolio-link-item">
+								Mern-Stack
+							</Link>
 						</li>
 						<li className="portfolio-link">
-							<a className="portfolio-link-item">React</a>
+							<Link to="#" className="portfolio-link-item">
+								React
+							</Link>
 						</li>
 						<li className="portfolio-link">
-							<a className="portfolio-link-item">React-Native</a>
+							<Link to="#" className="portfolio-link-item">
+								React-Native
+							</Link>
 						</li>
 						<li className="portfolio-link">
-							<a className="portfolio-link-item">Bootstrap</a>
+							<Link to="#" className="portfolio-link-item">
+								Bootstrap
+							</Link>
 						</li>
 						<li className="portfolio-link">
-							<a className="portfolio-link-item">Spring</a>
+							<Link to="#" className="portfolio-link-item">
+								Spring
+							</Link>
 						</li>
 						<li className="portfolio-link">
-							<a className="portfolio-link-item">Android</a>
-						</li>
+							<Link to="#" className="portfolio-link-item">
+								Android
+							</Link>
+						</li> */}
 					</ul>
 				</div>
 			</div>
@@ -35,4 +69,22 @@ class PortfolioFilter extends Component {
 	}
 }
 
-export default PortfolioFilter;
+function mapStateToProps(state) {
+	return {
+		portfolioCurrentCategory: state.portfolioChangeCategoryReducer,
+		portfolioCategories: state.portfolioCategoryListReducer,
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: {
+			portfolioGetCategories: bindActionCreators(
+				portfolioActions.portfolioGetCategories,
+				dispatch
+			),
+		},
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PortfolioFilter);

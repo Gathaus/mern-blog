@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./BlogItems.scss";
 
 class BlogItems extends Component {
+
 	render() {
 		return (
 			<>

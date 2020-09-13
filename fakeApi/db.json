@@ -1,0 +1,55 @@
+{
+	"portfoliosItems": [
+		{
+			"id": 1,
+			"categoryTag": "java",
+			"title": "news",
+			"description": "blablabla",
+			"imageUrl": "https://picsum.photos/id/1084/536/354?grayscale"
+		},
+		{
+			"id": 2,
+			"categoryTag": "c",
+			"title": "qwe",
+			"description": "fff",
+			"imageUrl": "https://picsum.photos/id/1084/536/354?grayscale"
+		},
+		{
+			"id": 3,
+			"categoryTag": "c",
+			"title": "qwe",
+			"description": "dddd",
+			"imageUrl": "https://picsum.photos/id/1084/536/354?grayscale"
+		}
+	],
+	"portfolioCategories": [
+		{
+			"id": 1,
+			"portfolioCategoryName": "All"
+		},
+		{
+			"id": 2,
+			"portfolioCategoryName": "Mern-Stack"
+		},
+		{
+			"id": 3,
+			"portfolioCategoryName": "React"
+		},
+		{
+			"id": 4,
+			"portfolioCategoryName": "React-Native"
+		},
+		{
+			"id": 5,
+			"portfolioCategoryName": "Bootstrap"
+		},
+		{
+			"id": 3,
+			"portfolioCategoryName": "Spring"
+		},
+		{
+			"id": 3,
+			"portfolioCategoryName": "Android"
+		}
+	]
+}

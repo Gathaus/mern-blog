@@ -1,21 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./index.scss";
 import App from "./components/root/App";
 import * as serviceWorker from "./serviceWorker";
 
-import 'bootstrap';
+import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.js';
-import $ from 'jquery';
-import Popper from 'popper.js';
+import "bootstrap/dist/js/bootstrap.js";
+import $ from "jquery";
+import Popper from "popper.js";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import configureStore from "./redux/reducers/configureStore";
+
+const store = configureStore();
 
 ReactDOM.render(
 	<Router>
-		<React.StrictMode>
-			<App />
-		</React.StrictMode>
+		<Provider store={store}>
+			<React.StrictMode>
+				<App />
+			</React.StrictMode>
+		</Provider>
 	</Router>,
 	document.getElementById("root")
 );

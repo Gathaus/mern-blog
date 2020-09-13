@@ -6,7 +6,7 @@ class HomeJumbotron extends Component {
 		return (
 			<>
 				<section className="jumbotron home-jumbotron">
-					<div className="container">
+					<div className="container ">
 						<div className="row">
 							<div className="image-box col-md-5 ml-5">
 								<img

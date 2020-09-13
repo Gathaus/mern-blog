@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "./PortfolioItems.scss";
+import axios from "axios"
 
 class PortfolioItems extends Component {
+
+
 	render() {
 		return (
 			<div className="container pb-5 pt-5">
