@@ -10,9 +10,9 @@ export default class Footer extends Component {
 						<div className="row d-flex justify-content-between">
 							<div className="col-md-4 footer-links text-center">
 								<div className="container">
-									<a className="">Github</a>
-									<a className="">Instagram</a>
-									<a className="">Linkedin</a>
+									<a href="https://github.com/Gathaus" target="_blank" className="">Github</a>
+									<a href="https://www.instagram.com/rizamertyagci/" target="_blank">Instagram</a>
+									<a href="https://www.linkedin.com/in/rmy1/" target="_blank">Linkedin</a>
 								</div>
 							</div>
 							<div className="col-md-5 text-right footer-text-container">

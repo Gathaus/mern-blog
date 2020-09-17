@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import "./Skills.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLayerGroup, faCode,  faMobileAlt, faDesktop} from "@fortawesome/free-solid-svg-icons";
+import {
+	faLayerGroup,
+	faCode,
+	faMobileAlt,
+	faDesktop,
+} from "@fortawesome/free-solid-svg-icons";
 
 class skills extends Component {
 	render() {
@@ -10,7 +15,7 @@ class skills extends Component {
 				<div className="container">
 					<div className="row block-title">
 						<div className="col-md-3 font-poppins">
-							<h2 className="text-center mr-4">My Skills</h2>
+							<h2 className="text-center mr-4">About Me</h2>
 						</div>
 					</div>
 					<div className="row">
@@ -20,8 +25,18 @@ class skills extends Component {
 						</div>
 					</div>
 				</div>
-				<div className="container skill-part font-poppins">
+				<div className="container skill-part font-poppins ">
 					<div className="row">
+						<p className="skills-description mx-auto">
+							I am currently a third year Computer Engineering student at the
+							İstanbul Aydın University. I love learning new things and solving
+							algorithms/problems using logic. Some of my passions include
+							mobile app development, full-stack development, and developing
+							programs that benefit society or make people’s lives more
+							convenient. Check portfolio and blog pages to learn more about me.
+						</p>
+					</div>
+					{/* <div className="row">
 						<div className="col-md-5 ml-5">
 							<FontAwesomeIcon className="skills-icon" icon={faLayerGroup} />
 							<h4 className="skill-title">Full-Stack Web Development</h4>
@@ -64,7 +79,7 @@ class skills extends Component {
 								turpis turpis tempus ex.
 							</p>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</>
 		);

@@ -1,4 +1,5 @@
 export default{
     portfolioCurrentCategory:{},
-    categories:[]
+    portfolioCategories:[],
+    portfolioItems:[],
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import a from "./HomeJumbotron.scss";
+import {Link} from "react-router-dom"
 
 class HomeJumbotron extends Component {
 	render() {
@@ -19,16 +20,16 @@ class HomeJumbotron extends Component {
 								<h4>Developer</h4>
 								<h1>Rıza Mert Yağcı</h1>
 								<p className="text-left bio">
-									I'm a computer engineering student in Istanbul<br/>
-									and a button away for any app idea.
+									I'm a button away for any project idea.
 								</p>
 								<div className="row">
+									<Link to="contact">
 									<button
 										type="button"
 										className="ml-2 btn btn-dark contact-btn"
-									>
-										Contact
+									>Contact
 									</button>
+									</Link>
 								</div>
 							</div>
 						</div>

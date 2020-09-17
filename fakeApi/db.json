@@ -2,24 +2,24 @@
 	"portfoliosItems": [
 		{
 			"id": 1,
-			"categoryTag": "java",
-			"title": "news",
-			"description": "blablabla",
+			"categoryTag": "Java",
+			"title": "App 1",
+			"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
 			"imageUrl": "https://picsum.photos/id/1084/536/354?grayscale"
 		},
 		{
 			"id": 2,
-			"categoryTag": "c",
-			"title": "qwe",
-			"description": "fff",
-			"imageUrl": "https://picsum.photos/id/1084/536/354?grayscale"
+			"categoryTag": "C",
+			"title": "App 2",
+			"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+			"imageUrl": "http://avante.biz/wp-content/uploads/Full-HD-Desktop-Wallpapers-1920x1080/Full-HD-Desktop-Wallpapers-1920x1080-002.jpg"
 		},
 		{
 			"id": 3,
-			"categoryTag": "c",
-			"title": "qwe",
-			"description": "dddd",
-			"imageUrl": "https://picsum.photos/id/1084/536/354?grayscale"
+			"categoryTag": "Javascript",
+			"title": "App 3",
+			"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+			"imageUrl": "https://www.kocaali.com/images/album/Image_7.jpg"
 		}
 	],
 	"portfolioCategories": [
@@ -44,11 +44,11 @@
 			"portfolioCategoryName": "Bootstrap"
 		},
 		{
-			"id": 3,
-			"portfolioCategoryName": "Spring"
+			"id": 6,
+			"portfolioCategoryName": "Java"
 		},
 		{
-			"id": 3,
+			"id": 7,
 			"portfolioCategoryName": "Android"
 		}
 	]

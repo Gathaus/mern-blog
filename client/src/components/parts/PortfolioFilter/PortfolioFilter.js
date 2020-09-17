@@ -10,24 +10,35 @@ class PortfolioFilter extends Component {
 		this.props.actions.portfolioGetCategories();
 	}
 
+	selectCategory = (category) => {
+		this.props.actions.portfolioChangeCategory(category);
+		this.props.actions.portfolioGetItems(category.portfolioCategoryName)
+		console.log(category.portfolioCategoryName)
+	};
+
 	render() {
 		return (
-			<div className="container">
-				<div className="row d-flex justify-content-end mt-4 mr-5">
-					<ul className="portfolio-list">
-						{this.props.portfolioCategories.length > 0 ? (
-							this.props.portfolioCategories.map((category) => (
-								<li className="portfolio-link">
-									<Link to="#" className="portfolio-link-item">
-										{category.portfolioCategoryName}
-									</Link>
-								</li>
-							))
-						) : (
-							<div></div>
-						)}
+			<>
+				<div className="container">
+					<div className="row d-flex justify-content-end mt-4 mr-5">
+						<ul className="portfolio-list">
+							{this.props.portfolioCategories.length > 0 ? (
+								this.props.portfolioCategories.map((category) => (
+									<li
+										className="portfolio-link"
+										key={category.id}
+										onClick={() => this.selectCategory(category)}
+									>
+										<Link to="portfolio" className="portfolio-link-item">
+											{category.portfolioCategoryName}
+										</Link>
+									</li>
+								))
+							) : (
+								<div></div>
+							)}
 
-						{/* <li className="portfolio-link">
+							{/* <li className="portfolio-link">
 							<Link to="#" className="portfolio-link-item">
 								All
 							</Link>
@@ -62,9 +73,11 @@ class PortfolioFilter extends Component {
 								Android
 							</Link>
 						</li> */}
-					</ul>
+						</ul>
+			
+					</div>
 				</div>
-			</div>
+			</>
 		);
 	}
 }
@@ -81,6 +94,14 @@ function mapDispatchToProps(dispatch) {
 		actions: {
 			portfolioGetCategories: bindActionCreators(
 				portfolioActions.portfolioGetCategories,
+				dispatch
+			),
+			portfolioChangeCategory: bindActionCreators(
+				portfolioActions.portfolioChangeCategory,
+				dispatch
+			),
+			portfolioGetItems: bindActionCreators(
+				portfolioActions.portfolioGetItems,
 				dispatch
 			),
 		},

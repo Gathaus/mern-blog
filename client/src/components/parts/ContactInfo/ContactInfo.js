@@ -13,31 +13,29 @@ class ContactInfo extends Component {
 			<div className="container mt-5 contact-page">
 				<div className="row">
 					<div className="col-md-4">
-						<div className="col-md-12">
+						{/* <div className="col-md-12">
 							<FontAwesomeIcon className="contact-icons" icon={faMobileAlt} />
 							<h5 className="contact-title ml-3">415-832-2000</h5>
 							<p className="contact-part ml-3">
 								Duis erat leo, aliquam laoreet fringilla quis, pretium vitae
 								dui.
 							</p>
-						</div>
+						</div> */}
 						<div className="col-md-12 mt-5">
 							<FontAwesomeIcon
 								className="contact-icons"
 								icon={faMapMarkerAlt}
 							/>
-							<h5 className="contact-title ml-3">San Francisco</h5>
+							<h5 className="contact-title ml-3">Turkey</h5>
 							<p className="contact-part ml-3">
-								Duis erat leo, aliquam laoreet fringilla quis, pretium vitae
-								dui.
+								I Currently Live in Istanbul
 							</p>
 						</div>
 						<div className="col-md-12 mt-5">
 							<FontAwesomeIcon className="contact-icons" icon={faEnvelope} />
-							<h5 className="contact-title ml-3">hello@example.com</h5>
+							<h5 className="contact-title ml-3">Rizamertyagci@gmail.com</h5>
 							<p className="contact-part ml-3">
-								Duis erat leo, aliquam laoreet fringilla quis, pretium vitae
-								dui.
+								You can also contact me via email
 							</p>
 						</div>
 					</div>
