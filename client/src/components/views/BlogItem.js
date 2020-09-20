@@ -8,7 +8,6 @@ class BlogItem extends Component {
         return (
             <div>
                 <BlogItemPage/>
-                <PortfolioWriteComment/>
             </div>
         )
     }

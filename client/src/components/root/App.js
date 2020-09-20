@@ -20,8 +20,8 @@ function App() {
 					<Route exact path="/portfolio" component={Portfolio} />
 					<Route exact path="/blog" component={Blog} />
 					<Route exact path="/contact" component={Contact} />
-					<Route exact path="/blogitem" component={BlogItem} />
-					<Route exact path="/portfolioitem" component={PortfolioItem} />
+					<Route exact path="/blogitem" component={PortfolioItem} />
+					<Route exact path="/portfolioitem" component={BlogItem} />
 					<Route exact path="*" exact={true} component={NotFound} />
 
 

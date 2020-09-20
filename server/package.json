@@ -1,0 +1,27 @@
+{
+  "name": "react-blog-api",
+  "version": "1.0.0",
+  "description": "react blog api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "express",
+    "blog",
+    "api"
+  ],
+  "author": "Rıza Mert Yağcı",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "he": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.5",
+    "slugify": "^1.4.5"
+  }
+}

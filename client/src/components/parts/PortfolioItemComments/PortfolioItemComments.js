@@ -12,12 +12,12 @@ class PortfolioItemComments extends Component {
 				</div>
 				<div className="container">
 					<div className="row">
-						<div className="col-md-1">
+						{/* <div className="col-md-1">
 							<img
 								className="portfolio-item-comment-avatar"
 								src="https://via.placeholder.com/1920"
 							></img>
-						</div>
+						</div> */}
 						<div className="col-md-10 ml-4">
 							<div className="row">
 								<div className="portfolio-item-comment-author">
