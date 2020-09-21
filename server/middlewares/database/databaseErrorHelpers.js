@@ -21,6 +21,23 @@ const checkBlogItemExist = errorWrapper(async (req, res, next) => {
 	next();
 });
 
+const checkPortfolioItemExist = errorWrapper(async (req, res, next) => {
+	const portfolioItem_id = req.params.id || req.params.portfolioItem_id;
+
+	const portfolioItem = await PortfolioItem.findById(portfolioItem_id);
+
+	if (!portfolioItem) {
+		return next(
+			new CustomError(
+				`PortfolioItem Not Found with Id : ${portfolioItem_id}`,
+				404
+			)
+		);
+	}
+	next();
+});
+
 module.exports = {
 	checkBlogItemExist,
+	checkPortfolioItemExist,
 };

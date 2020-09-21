@@ -3,8 +3,10 @@ const errorWrapper = require("../helpers/error/errorWrapper");
 const CustomError = require("../helpers/error/customError");
 const { sendJwtToClient } = require("../helpers/authorization/tokenHelpers");
 const bcrypt = require("bcryptjs");
-const {validateUserInput , comparePassword} = require("../helpers/input/inputHelpers")
-
+const {
+	validateUserInput,
+	comparePassword,
+} = require("../helpers/input/inputHelpers");
 
 const adminRegister = errorWrapper(async (req, res, next) => {
 	const name = process.env.USERNAME;
@@ -33,50 +35,45 @@ const adminLogin = errorWrapper(async (req, res, next) => {
 		return next(new CustomError("Please check your credentials", 404));
 	}
 
-	sendJwtToClient(user, res);
+	sendTokenToClient(user, res, 200);
 });
 
 const adminLogout = errorWrapper(async (req, res, next) => {
-	const {JWT_COOKIE_EXPIRE} = process.env;
-
-	return res.status(200)
-	.cookie({
-		httpOnly: true,
-		expires : new Date(Date.now()),
-		secure: false
-	})
-	.json({
-		success:true,
-		message:"Logout Successfull"
-	})
-
-})
-
-const sendTokenToClient = (user, res, status) => {
-	// Get Token From User Model
-	const token = user.getTokenFromUserModel();
-
-	const { JWT_COOKIE_EXPIRE, NODE_ENV } = process.env;
-
-	// Send To Client With Res
+	const { JWT_COOKIE_EXPIRE } = process.env;
 
 	return res
-		.status(status)
-		.cookie("token", token, {
+		.status(200)
+		.cookie({
 			httpOnly: true,
-			expires: new Date(Date.now() + parseInt(JWT_COOKIE_EXPIRE) * 1000 * 60),
-			secure: NODE_ENV === "development" ? false : true,
+			expires: new Date(Date.now()),
+			secure: false,
 		})
 		.json({
 			success: true,
-			token,
+			message: "Logout Successfull",
+		});
+});
+
+const sendTokenToClient = (user, res, status) => {
+	// Get Token From User Model
+	const { JWT_COOKIE_EXPIRE, NODE_ENV } = process.env;
+	const token = user.getTokenFromUserModel();
+	return res
+		.status(200)
+		.cookie("token", token, {
+			httpOnly: true,
+			expires: new Date(Date.now() + parseInt(JWT_COOKIE_EXPIRE) * 123),
+			secure: false,
+		})
+		.json({
+			success: true,
+			access_token: token,
 			data: {
 				name: user.name,
-				password: user.password,
 				email: user.email,
-				role: user.role,
 			},
 		});
+	//response
 };
 
 const getUser = (req, res, next) => {
@@ -93,5 +90,5 @@ module.exports = {
 	adminRegister,
 	adminLogin,
 	getUser,
-	adminLogout
+	adminLogout,
 };

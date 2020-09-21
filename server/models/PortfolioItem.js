@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const slugify = require("slugify");
+const jwt = require("jsonwebtoken");
 
 const PortfolioItemSchema = new Schema({
 	title: {
@@ -39,6 +41,23 @@ const PortfolioItemSchema = new Schema({
 		type: Date,
 		default: Date.now,
 	},
+	slug: String,
+});
+PortfolioItemSchema.pre("save", function (next) {
+	if (!this.isModified("title")) {
+		next();
+	}
+	this.slug = this.makeSlug();
+	next();
 });
 
+PortfolioItemSchema.methods.makeSlug = function () {
+	return slugify(this.title, {
+		replacement: "-",
+		remove: /[*+~.()'"!:@]/g,
+		lower: true,
+		strict: false,
+		locale: "vi",
+	});
+};
 module.exports = mongoose.model("PortfolioItem", PortfolioItemSchema);

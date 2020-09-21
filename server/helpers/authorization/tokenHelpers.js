@@ -28,7 +28,6 @@ const isTokenIncluded = (req) => {
 
 const getAccessTokenFromHeader = (req) => {
     const authorization = req.headers.authorization;
-    
     const accessToken = authorization.split(" ")[1];
     return accessToken;
 }

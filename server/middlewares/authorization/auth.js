@@ -28,8 +28,7 @@ const getAccessToRoute = (req, res, next) => {
 
 const getAccessTokenFromHeader = (req) => {
 	const authorization = req.headers.authorization;
-
-	const accessToken = authorization.split("Bearer:")[1];
+	const accessToken = authorization.split(" ")[1];
 	return accessToken;
 };
 const isTokenIncluded = (req) => {
