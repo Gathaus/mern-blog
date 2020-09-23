@@ -3,10 +3,23 @@ const CustomError = require("../helpers/error/customError");
 const errorWrapper = require("../helpers/error/errorWrapper");
 
 const addPortfolioItem = errorWrapper(async (req, res, next) => {
-	const { title, shortDescription } = req.body;
+	const {
+		title,
+		shortDescription,
+		content,
+		portfolioTags,
+		thumbnail,
+		images,
+		links,
+	} = req.body;
 	const portfolioItem = await PortfolioItem.create({
 		title,
 		shortDescription,
+		content,
+		portfolioTags,
+		thumbnail,
+		images,
+		links,
 	});
 	res.status(200).json({
 		success: true,
@@ -16,12 +29,25 @@ const addPortfolioItem = errorWrapper(async (req, res, next) => {
 
 const editPortfolioItem = errorWrapper(async (req, res, next) => {
 	const { id } = req.params;
-	const { title, shortDescription } = req.body;
+	const {
+		title,
+		shortDescription,
+		content,
+		portfolioTags,
+		thumbnail,
+		images,
+		links,
+	} = req.body;
 
 	let portfolioItem = await PortfolioItem.findById(id);
 
 	portfolioItem.title = title;
 	portfolioItem.shortDescription = shortDescription;
+	portfolioItem.content = content;
+	portfolioItem.portfolioTags = portfolioTags;
+	portfolioItem.thumbnail = thumbnail;
+	portfolioItem.images = images;
+	portfolioItem.links = links;
 
 	portfolioItem = await portfolioItem.save();
 
@@ -65,6 +91,6 @@ module.exports = {
 	addPortfolioItem,
 	editPortfolioItem,
 	deletePortfolioItem,
-    getSinglePortfolioItem,
-    getAllPortfolioItems,
+	getSinglePortfolioItem,
+	getAllPortfolioItems,
 };

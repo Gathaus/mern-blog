@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./PortfolioItems.scss";
-import axios from "axios";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as portfolioActions from "../../../redux/actions/portfolioActions";
+const { Link } = require("react-router-dom");
 
 class PortfolioItems extends Component {
 	componentDidMount() {
@@ -14,28 +14,33 @@ class PortfolioItems extends Component {
 		return (
 			<div className="container pb-5 pt-5">
 				<div className="row">
-					{this.props.portfolioItems.map((portfolioItem) => (
-						<div className="col-md-4">
-							<div class="blog-card">
-								<div class="blog-card-image img-fluid">
+					{this.props.portfolioItems.map((portfolioItem, index) => (
+						<div className="col-md-4" key={index}>
+							<div className="blog-card" onClick={() => console.log(portfolioItem._id)}>
+								<div className="blog-card-image img-fluid">
 									<a href="#">
-										<img class="portfolio-img" src={portfolioItem.imageUrl} />
+										<img
+											className="portfolio-img"
+											src={portfolioItem.thumbnail}
+										/>
 									</a>
-									<div class="ripple-cont"></div>
+									<div className="ripple-cont"></div>
 								</div>
-								<div class="blog-table">
-									<h6 class="blog-category blog-text-success">
-										<i class="far fa-newspaper"></i> {portfolioItem.title}
+								<div className="blog-table">
+									<h6 className="blog-category blog-text-success">
+										<i className="far fa-newspaper"></i> {portfolioItem.title}
 									</h6>
 
-									<p class="blog-card-description">
-										{portfolioItem.description}
+									<p className="blog-card-description">
+										{portfolioItem.shortDescription}
 									</p>
-									<div class="ftr">
-										<div class="author">
-											<a href="#">
-												<span>{portfolioItem.categoryTag}</span>
-											</a>
+									<div className="ftr">
+										<div className="author">
+											{portfolioItem.portfolioTags.map((tag, index) => (
+												<Link href="#" key={index}>
+													<span>{tag} </span>
+												</Link>
+											))}
 										</div>
 										{/* <div class="stats">
 											<i class="far fa-clock"></i> 10 min

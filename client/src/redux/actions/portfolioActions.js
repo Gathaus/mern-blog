@@ -17,15 +17,16 @@ export function portfolioGetItemsSuccess(portfolioItems) {
 
 export function portfolioGetItems(portfolioCategoryName) {
 	return function (dispatch) {
-		let url = "http://localhost:3000/portfoliosItems";
+		let url = "http://localhost:5000/api/portfolio/";
 		if (portfolioCategoryName) {
 			portfolioCategoryName == "All"
 				? (url = url)
 				: (url = url + "?categoryTag=" + portfolioCategoryName);
 		}
-		return axios(url).then((response) =>
-			dispatch(portfolioGetItemsSuccess(response.data))
-		);
+
+		return axios(url).then((response) => {
+			dispatch(portfolioGetItemsSuccess(response.data.data));
+		});
 	};
 }
 
@@ -38,9 +39,11 @@ export function portfolioGetCategoriesSuccess(portfolioCategories) {
 
 export function portfolioGetCategories() {
 	return function (dispatch) {
-		let url = "http://localhost:3000/portfolioCategories";
-		return axios(url).then((response) =>
-			dispatch(portfolioGetCategoriesSuccess(response.data))
-		);
+		let url = "http://localhost:5000/api/blog/blogCategories";
+		return axios(url).then((response) =>{
+			console.log(response.data.data[0].portfolioItemCategories);
+	
+			dispatch(portfolioGetCategoriesSuccess(response.data.data[0].portfolioItemCategories))
+		});
 	};
 }

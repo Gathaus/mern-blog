@@ -7,6 +7,7 @@ const {
 	postComment,
 	editBlogItem,
 	deleteBlogItem,
+	getBlogCategories
 } = require("../controllers/blog");
 const {
 	checkBlogItemExist,
@@ -14,7 +15,7 @@ const {
 const { getAccessToRoute } = require("../middlewares/authorization/auth");
 
 router.get("/", getAllBlogItems);
-router.get("/:id", getsingleBlogItem);
+router.get("/:id/getSingleblogItem", getsingleBlogItem);
 router.post("/addBlogItem", getAccessToRoute, addBlogItem);
 router.post("/postComment", postComment);
 router.put("/:id/blogItemEdit", [getAccessToRoute, checkBlogItemExist], editBlogItem);
@@ -23,4 +24,5 @@ router.delete(
 	[getAccessToRoute, checkBlogItemExist],
 	deleteBlogItem
 );
+router.get("/blogCategories",getBlogCategories);
 module.exports = router;

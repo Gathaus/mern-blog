@@ -1,16 +1,18 @@
 const BlogItem = require("../models/BlogItem");
+const Categorie = require("../models/Categorie");
 const CustomError = require("../helpers/error/customError");
 const errorWrapper = require("../helpers/error/errorWrapper");
 const sendMail = require("../helpers/libraries/sendEmail");
 
 const addBlogItem = errorWrapper(async (req, res, next) => {
-	const { title, shortDescription, content,blogTags,thumbnail } = req.body;
+	const { title, shortDescription, content,blogTags,thumbnail,jumbotronImage } = req.body;
 	const blogItem = await BlogItem.create({
 		title,
 		shortDescription,
 		content,
 		blogTags,
 		thumbnail,
+		jumbotronImage
 	});
 	res.status(200).json({
 		success: true,
@@ -38,7 +40,7 @@ const getsingleBlogItem = errorWrapper(async (req, res, next) => {
 });
 const editBlogItem = errorWrapper(async(req,res,next) => {
     const {id} = req.params;
-	const { title, shortDescription, content,blogTags,thumbnail } = req.body;
+	const { title, shortDescription, content,blogTags,thumbnail,jumbotronImage } = req.body;
 
 
 	let blogItem = await BlogItem.findById(id);
@@ -48,6 +50,7 @@ const editBlogItem = errorWrapper(async(req,res,next) => {
     blogItem.content = content;
     blogItem.blogTags = blogTags;
     blogItem.thumbnail = thumbnail;
+    blogItem.jumbotronImage = jumbotronImage;
 
     blogItem = await blogItem.save();
     
@@ -70,7 +73,14 @@ const deleteBlogItem = errorWrapper(async(req,res,next)=>{
         data : {}
     });
 });
+const getBlogCategories = errorWrapper(async (req, res, next) => {
+	const categorie = await Categorie.find();
 
+	return res.status(200).json({
+		success: true,
+		data: categorie,
+	});
+});
 const postComment = errorWrapper(async (req, res, next) => {
 	const comment = req.body.comment;
 	const username = req.body.username;
@@ -106,4 +116,5 @@ module.exports = {
 	editBlogItem,
 	deleteBlogItem,
 	postComment,
+	getBlogCategories,
 };

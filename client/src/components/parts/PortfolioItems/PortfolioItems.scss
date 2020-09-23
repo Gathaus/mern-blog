@@ -117,7 +117,9 @@
 	background-color: #333;
 }
 
-
+.blog-card .author a:hover{
+	text-decoration: none;
+}
 @media only screen and (min-width: 1200px) {
 	.blog-card .blog-card-image {
 		max-height: 13em;

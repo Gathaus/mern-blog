@@ -24,6 +24,9 @@ const PortfolioItemSchema = new Schema({
 	thumbnail: {
 		type: String,
 	},
+	images: {
+		type: String,
+	},
 
 	links: [
 		{

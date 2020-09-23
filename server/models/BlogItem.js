@@ -26,6 +26,9 @@ const BlogItemSchema = new Schema({
 	thumbnail: {
 		type: String,
 	},
+	jumbotronImage: {
+		type: String,
+	},
 
 	comments: [
 		{
