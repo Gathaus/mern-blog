@@ -5,14 +5,21 @@ const errorWrapper = require("../helpers/error/errorWrapper");
 const sendMail = require("../helpers/libraries/sendEmail");
 
 const addBlogItem = errorWrapper(async (req, res, next) => {
-	const { title, shortDescription, content,blogTags,thumbnail,jumbotronImage } = req.body;
+	const {
+		title,
+		shortDescription,
+		content,
+		blogTags,
+		thumbnail,
+		jumbotronImage,
+	} = req.body;
 	const blogItem = await BlogItem.create({
 		title,
 		shortDescription,
 		content,
 		blogTags,
 		thumbnail,
-		jumbotronImage
+		jumbotronImage,
 	});
 	res.status(200).json({
 		success: true,
@@ -25,53 +32,63 @@ const getAllBlogItems = errorWrapper(async (req, res, next) => {
 
 	return res.status(200).json({
 		success: true,
-		data: blogItems,
+		data: res.advanceQueryResults,
 	});
 });
 
 const getsingleBlogItem = errorWrapper(async (req, res, next) => {
+	const { slug } = req.params;
+	const blogItem = await BlogItem.findOne({ slug });
+	if (blogItem) {
+		return res.status(200).json({
+			success: true,
+			data: blogItem,
+		});
+	} else {
+		const blogItem = await BlogItem.findById("5f6ff33b1ba237c93cdaff42");
+		return res.json({
+			success: false,
+			data: blogItem,
+		});
+	}
+});
+const editBlogItem = errorWrapper(async (req, res, next) => {
 	const { id } = req.params;
-	const blogItem = await BlogItem.findById(id);
+	const {
+		title,
+		shortDescription,
+		content,
+		blogTags,
+		thumbnail,
+		jumbotronImage,
+	} = req.body;
 
-	return res.status(200).json({
+	let blogItem = await BlogItem.findById(id);
+
+	blogItem.title = title;
+	blogItem.shortDescription = shortDescription;
+	blogItem.content = content;
+	blogItem.blogTags = blogTags;
+	blogItem.thumbnail = thumbnail;
+	blogItem.jumbotronImage = jumbotronImage;
+
+	blogItem = await blogItem.save();
+
+	res.status(200).json({
 		success: true,
 		data: blogItem,
 	});
 });
-const editBlogItem = errorWrapper(async(req,res,next) => {
-    const {id} = req.params;
-	const { title, shortDescription, content,blogTags,thumbnail,jumbotronImage } = req.body;
 
-
-	let blogItem = await BlogItem.findById(id);
-
-    blogItem.title = title;
-    blogItem.shortDescription = shortDescription;
-    blogItem.content = content;
-    blogItem.blogTags = blogTags;
-    blogItem.thumbnail = thumbnail;
-    blogItem.jumbotronImage = jumbotronImage;
-
-    blogItem = await blogItem.save();
-    
-    res.status(200)
-    .json({
-        success : true,
-        data :  blogItem
-    });
-
-});
-
-const deleteBlogItem = errorWrapper(async(req,res,next)=>{
-	const {id} = req.params;
+const deleteBlogItem = errorWrapper(async (req, res, next) => {
+	const { id } = req.params;
 
 	await BlogItem.findByIdAndRemove(id);
 
-	res.status(200)
-    .json({
-        success : true,
-        data : {}
-    });
+	res.status(200).json({
+		success: true,
+		data: {},
+	});
 });
 const getBlogCategories = errorWrapper(async (req, res, next) => {
 	const categorie = await Categorie.find();
@@ -106,8 +123,6 @@ const postComment = errorWrapper(async (req, res, next) => {
 		return next(new CustomError("Email Could Not Be Sent", 500));
 	}
 });
-
-
 
 module.exports = {
 	addBlogItem,

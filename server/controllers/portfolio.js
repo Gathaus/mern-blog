@@ -6,21 +6,30 @@ const addPortfolioItem = errorWrapper(async (req, res, next) => {
 	const {
 		title,
 		shortDescription,
+		shortDescription2,
+		asd,
 		content,
 		portfolioTags,
 		thumbnail,
+		date,
+		technologies,
 		images,
 		links,
 	} = req.body;
+
 	const portfolioItem = await PortfolioItem.create({
 		title,
 		shortDescription,
+		shortDescription2,
 		content,
 		portfolioTags,
 		thumbnail,
+		date,
+		technologies,
 		images,
 		links,
 	});
+	console.log(req.body);
 	res.status(200).json({
 		success: true,
 		data: portfolioItem,
@@ -69,21 +78,28 @@ const deletePortfolioItem = errorWrapper(async (req, res, next) => {
 });
 
 const getSinglePortfolioItem = errorWrapper(async (req, res, next) => {
-	const { id } = req.params;
-	const portfolioItem = await PortfolioItem.findById(id);
+	const { slug } = req.params;
+	const portfolioItem = await PortfolioItem.findOne({ slug });
 
-	return res.status(200).json({
-		success: true,
-		data: portfolioItem,
-	});
+	if (portfolioItem) {
+		return res.status(200).json({
+			success: true,
+			data: portfolioItem,
+		});
+	} else {
+	const portfolioItem = await PortfolioItem.findById("5f6ffc451ba237c93cdaff43");
+		return res.status(404).json({
+			success: false,
+			data:portfolioItem
+		});
+	}
 });
 
 const getAllPortfolioItems = errorWrapper(async (req, res, next) => {
-	const portfolioItem = await PortfolioItem.find();
-
+	const portfolioItem = await PortfolioItem.find( { "content": { $ne: "ERROR" } });
 	return res.status(200).json({
 		success: true,
-		data: portfolioItem,
+		data: res.advanceQueryResults,
 	});
 });
 

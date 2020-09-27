@@ -11,18 +11,13 @@ dotenv.config({
 
 connectDatabase();
 
-
 const app = express();
 app.use(express.json());
 const PORT = process.env.PORT;
 
 app.use(cors());
 
-
-
 app.use("/api", routes);
-
-
 
 app.listen(PORT, () => {
 	console.log(`App started on ${PORT} `);

@@ -10,7 +10,7 @@ class BlogFilter extends Component {
 	}
 	selectCategory = (category) => {
 		this.props.actions.blogChangeCategory(category);
-		this.props.actions.blogGetItems(category.blogCategoryName);
+		this.props.actions.blogGetItems(category);
 	};
 	render() {
 		return (
@@ -20,7 +20,7 @@ class BlogFilter extends Component {
 						{this.props.blogCategories.length > 0 ? (
 							this.props.blogCategories.map((category,index) => (
 								<li className="portfolio-link" key={index}>
-									<a className="portfolio-link-item">{category}</a>
+									<Link className="portfolio-link-item" onClick={()=>{this.selectCategory(category)}}>{category}</Link>
 								</li>
 							))
 						) : (

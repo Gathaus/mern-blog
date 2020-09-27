@@ -12,22 +12,28 @@ import NotFound from "../views/NotFound";
 
 function App() {
 	return (
-			<div style={{position: "relative", minHeight: 100 + "vh", paddingBottom: 3 +"rem"}}>
-				<Navbar />
-				<Switch>
-					<Route exact path="/" component={AboutMe} />
-					<Route exact path="/about-me" component={AboutMe} />
-					<Route exact path="/portfolio" component={Portfolio} />
-					<Route exact path="/blog" component={Blog} />
-					<Route exact path="/contact" component={Contact} />
-					<Route exact path="/blogitem" component={PortfolioItem} />
-					<Route exact path="/portfolioitem" component={BlogItem} />
-					<Route exact path="*" exact={true} component={NotFound} />
-
-
-				</Switch>
-				<Footer />
-			</div>
+		<div
+			style={{
+				position: "relative",
+				minHeight: 100 + "vh",
+				paddingBottom: 3 + "rem",
+			}}
+		>
+			<Navbar />
+			<Switch>
+				<Route exact path="/" component={AboutMe} />
+				<Route exact path="/about-me" component={AboutMe} />
+				<Route exact path="/portfolio" component={Portfolio} />
+				<Route exact path="/blog" component={Blog} />
+				<Route exact path="/contact" component={Contact} />
+				<Route exact path="/blogitem/:slug" component={PortfolioItem} />
+				<Route exact path="/blogitem/:slug/:notFound" component={NotFound} />
+				<Route exact path="/portfolioitem/:slug" component={BlogItem} />
+				<Route exact path="/portfolioitem/:slug/:notFound" component={NotFound} />
+				<Route exact path="*" exact={true} component={NotFound} />
+			</Switch>
+			<Footer />
+		</div>
 	);
 }
 

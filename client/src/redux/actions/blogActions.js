@@ -1,11 +1,10 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
-import { portfolioGetItems } from "./portfolioActions";
 
 export function blogChangeCategory(blogCategory) {
 	return {
 		type: actionTypes.BLOG_CHANGE_CATEGORY,
-		patload: blogCategory,
+		payload: blogCategory,
 	};
 }
 
@@ -15,7 +14,6 @@ export function blogGetItemsSuccess(blogItems) {
 		payload: blogItems,
 	};
 }
-
 
 export function blogGetCategoriesSuccess(blogCategories) {
 	return {
@@ -29,22 +27,42 @@ export function blogGetItems(blogCategoryName) {
 		if (blogCategoryName) {
 			blogCategoryName == "All"
 				? (url = url)
-				: (url = url + "?categoryTag=" + blogCategoryName);
+				: (url = url + "?search=" + blogCategoryName);
 		}
 		return axios(url).then((response) => {
-			dispatch(blogGetItemsSuccess(response.data.data));
+			dispatch(blogGetItemsSuccess(response.data.data.data));
 		});
 	};
 }
+export function blogGetSingleItemSuccess(blogSingleItem) {
+	return {
+		type: actionTypes.BLOG_GET_SINGLE_ITEM_SUCCESS,
+		payload: blogSingleItem,
+	};
+}
 
+
+export function blogGetSingleItem(blogSlugName) {
+	return function (dispatch) {
+		let url = "http://localhost:5000/api/blog/" + blogSlugName + "/getSingleblogItem";
+		return axios(url).then((response) => {
+			console.log(response.data)
+			dispatch(blogGetSingleItemSuccess(response.data.data))
+		})
+		.catch((err)=>{
+			dispatch(blogGetSingleItemSuccess(err.response.data.data))
+		})
+	};
+}
 export function blogGetCategories() {
 	return function (dispatch) {
 		let url = "http://localhost:5000/api/blog/blogCategories";
-		return axios(url).then((response) =>{
+		return axios(url).then((response) => {
 			console.log(response.data.data[0].blogItemCategories);
-	
-			dispatch(blogGetCategoriesSuccess(response.data.data[0].blogItemCategories))
+
+			dispatch(
+				blogGetCategoriesSuccess(response.data.data[0].blogItemCategories)
+			);
 		});
 	};
 }
-

@@ -15,7 +15,7 @@ const BlogItemSchema = new Schema({
 		required: true,
 	},
 	content: {
-		String,
+		type: String,
 	},
 	blogTags: [
 		{

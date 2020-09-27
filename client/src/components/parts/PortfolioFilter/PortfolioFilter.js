@@ -12,7 +12,7 @@ class PortfolioFilter extends Component {
 
 	selectCategory = (category) => {
 		this.props.actions.portfolioChangeCategory(category);
-		this.props.actions.portfolioGetItems(category.portfolioCategoryName)
+		this.props.actions.portfolioGetItems(category)
 
 		
 	};
@@ -24,10 +24,10 @@ class PortfolioFilter extends Component {
 					<div className="row d-flex justify-content-end mt-4 mr-5">
 						<ul className="portfolio-list">
 							{this.props.portfolioCategories.length > 0 ? (
-								this.props.portfolioCategories.map((category) => (
+								this.props.portfolioCategories.map((category,index) => (
 									<li
 										className="portfolio-link"
-										key={category.id}
+										key={index}
 										onClick={() => this.selectCategory(category)}
 									>
 										<Link to="portfolio" className="portfolio-link-item">

@@ -9,6 +9,10 @@ class PortfolioItems extends Component {
 	componentDidMount() {
 		this.props.actions.portfolioGetItems();
 	}
+	// selectCategory = (category) => {
+	// 	this.props.actions.portfolioChangeCategory(category);
+	// 	this.props.actions.portfolioGetItems(category);
+	// };
 
 	render() {
 		return (
@@ -16,7 +20,10 @@ class PortfolioItems extends Component {
 				<div className="row">
 					{this.props.portfolioItems.map((portfolioItem, index) => (
 						<div className="col-md-4" key={index}>
-							<div className="blog-card" onClick={() => console.log(portfolioItem._id)}>
+							<div className="blog-card" onClick={() => console.log(portfolioItem)}>
+								<Link to={"portfolioitem/"+portfolioItem.slug} onClick={() => console.log(portfolioItem._id)}>
+									<span id="portfolio-item-link"></span>
+								</Link>
 								<div className="blog-card-image img-fluid">
 									<a href="#">
 										<img
@@ -37,7 +44,7 @@ class PortfolioItems extends Component {
 									<div className="ftr">
 										<div className="author">
 											{portfolioItem.portfolioTags.map((tag, index) => (
-												<Link href="#" key={index}>
+												<Link to="#" key={index}>
 													<span>{tag} </span>
 												</Link>
 											))}
@@ -103,6 +110,10 @@ function mapDispatchToProps(dispatch) {
 		actions: {
 			portfolioGetItems: bindActionCreators(
 				portfolioActions.portfolioGetItems,
+				dispatch
+			),
+			portfolioChangeCategory: bindActionCreators(
+				portfolioActions.portfolioChangeCategory,
 				dispatch
 			),
 		},

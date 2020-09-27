@@ -2,12 +2,28 @@ import React, { Component } from "react";
 import "./PortfolioItemBody.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
-import { faFacebookSquare, faTwitterSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom";
+import {
+	faFacebookSquare,
+	faTwitterSquare,
+	faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+import * as blogActions from "../../../redux/actions/blogActions";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+const { Link, Redirect } = require("react-router-dom");
 class PortfolioItemBody extends Component {
+	constructor({ match, location }) {
+		super(null);
+	}
+	componentDidMount() {
+		this.props.actions.blogGetSingleItem(this.props.data.match.params.slug);
+	}
 	render() {
 		return (
 			<>
+				{this.props.blogSingleItem.content == "ERROR" ? (
+					<Redirect to={this.props.data.match.url + "/NotFound"}></Redirect>
+				) : null}
 				<div className="portfolio-item-body">
 					<div className="container  mt-5">
 						<div className="row">
@@ -21,6 +37,7 @@ class PortfolioItemBody extends Component {
 						className="w-100 img-fluid portfolio-item-post-image mt-4"
 						src="https://lmpixels.com/wp/leven-wp/full-width-dark/wp-content/uploads/sites/5/2019/12/blog_post_2_full.jpg"
 						alt="First slide"
+						onClick={() => console.log(this.props.data.match.url)}
 					/>
 					<div className="portfolio-text-row mx-auto">
 						<div className="portfolio-item-text mt-5">
@@ -100,7 +117,7 @@ class PortfolioItemBody extends Component {
 							</p>
 						</div>
 					</div>
-                    
+
 					<div className="row portfolio-item-footer mt-5">
 						<div className="portfolio-item-date ml-1">
 							<span className="entry-date">
@@ -140,5 +157,20 @@ class PortfolioItemBody extends Component {
 		);
 	}
 }
+function mapStateToProps(state) {
+	return {
+		blogSingleItem: state.blogSingleItemReducer,
+	};
+}
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: {
+			blogGetSingleItem: bindActionCreators(
+				blogActions.blogGetSingleItem,
+				dispatch
+			),
+		},
+	};
+}
 
-export default PortfolioItemBody;
+export default connect(mapStateToProps, mapDispatchToProps)(PortfolioItemBody);

@@ -115,11 +115,25 @@
 
 .ftr .author {
 	background-color: #333;
+	position: relative;
+	z-index: 2;
 }
 
 .blog-card .author a:hover{
+	color: #007bff;
 	text-decoration: none;
 }
+
+.blog-card #portfolio-item-link{
+	position:absolute; 
+	width:100%;
+	height:100%;
+	top:0;
+	left: 0;
+	z-index: 1;
+  
+}
+
 @media only screen and (min-width: 1200px) {
 	.blog-card .blog-card-image {
 		max-height: 13em;

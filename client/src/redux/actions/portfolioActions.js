@@ -15,18 +15,39 @@ export function portfolioGetItemsSuccess(portfolioItems) {
 	};
 }
 
+
 export function portfolioGetItems(portfolioCategoryName) {
 	return function (dispatch) {
 		let url = "http://localhost:5000/api/portfolio/";
 		if (portfolioCategoryName) {
 			portfolioCategoryName == "All"
 				? (url = url)
-				: (url = url + "?categoryTag=" + portfolioCategoryName);
+				: (url = url + "?search=" + portfolioCategoryName);
 		}
-
 		return axios(url).then((response) => {
-			dispatch(portfolioGetItemsSuccess(response.data.data));
+			dispatch(portfolioGetItemsSuccess(response.data.data.data));
 		});
+	};
+}
+
+export function portfolioGetSingleItemSuccess(portfolioSingleItem) {
+	return {
+		type: actionTypes.PORTFOLIO_GET_SINGLE_ITEM_SUCCESS,
+		payload: portfolioSingleItem,
+	};
+}
+
+export function portfolioGetSingleItem(portfolioSlugName) {
+	return function (dispatch) {
+		let url = "http://localhost:5000/api/portfolio/" + portfolioSlugName;
+		return axios(url).then((response) => {
+			console.log(response.data.data)
+			dispatch(portfolioGetSingleItemSuccess(response.data.data));
+		})
+		.catch((err)=>{
+			dispatch(portfolioGetSingleItemSuccess(err.response.data.data));
+
+		})
 	};
 }
 
@@ -40,10 +61,12 @@ export function portfolioGetCategoriesSuccess(portfolioCategories) {
 export function portfolioGetCategories() {
 	return function (dispatch) {
 		let url = "http://localhost:5000/api/blog/blogCategories";
-		return axios(url).then((response) =>{
-			console.log(response.data.data[0].portfolioItemCategories);
-	
-			dispatch(portfolioGetCategoriesSuccess(response.data.data[0].portfolioItemCategories))
+		return axios(url).then((response) => {
+			dispatch(
+				portfolioGetCategoriesSuccess(
+					response.data.data[0].portfolioItemCategories
+				)
+			);
 		});
 	};
 }

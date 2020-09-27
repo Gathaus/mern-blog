@@ -1,16 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const Portfolio = require("../models/PortfolioItem");
 const {
 	addPortfolioItem,
-    editPortfolioItem,
-    deletePortfolioItem,
-    getSinglePortfolioItem,
-    getAllPortfolioItems
+	editPortfolioItem,
+	deletePortfolioItem,
+	getSinglePortfolioItem,
+	getAllPortfolioItems,
 } = require("../controllers/portfolio");
 const {
 	checkPortfolioItemExist,
 } = require("../middlewares/database/databaseErrorHelpers");
 const { getAccessToRoute } = require("../middlewares/authorization/auth");
+const {portfolioQueryMiddleware} = require("../middlewares/query/portfolioQueryMiddleware");
 
 router.post("/addPortfolioItem", getAccessToRoute, addPortfolioItem);
 router.put(
@@ -23,8 +25,8 @@ router.delete(
 	[getAccessToRoute, checkPortfolioItemExist],
 	deletePortfolioItem
 );
-router.get("/", getAllPortfolioItems);
+router.get("/", portfolioQueryMiddleware(Portfolio), getAllPortfolioItems);
 
-router.get("/:id", getSinglePortfolioItem);
+router.get("/:slug", getSinglePortfolioItem);
 
 module.exports = router;

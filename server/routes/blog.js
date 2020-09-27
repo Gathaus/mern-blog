@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const BlogItem = require("../models/BlogItem");
 const {
 	addBlogItem,
 	getAllBlogItems,
@@ -13,9 +14,10 @@ const {
 	checkBlogItemExist,
 } = require("../middlewares/database/databaseErrorHelpers");
 const { getAccessToRoute } = require("../middlewares/authorization/auth");
+const {blogQueryMiddleware} = require("../middlewares/query/blogQueryMiddleware");
 
-router.get("/", getAllBlogItems);
-router.get("/:id/getSingleblogItem", getsingleBlogItem);
+router.get("/",blogQueryMiddleware(BlogItem), getAllBlogItems);
+router.get("/:slug/getSingleblogItem", getsingleBlogItem);
 router.post("/addBlogItem", getAccessToRoute, addBlogItem);
 router.post("/postComment", postComment);
 router.put("/:id/blogItemEdit", [getAccessToRoute, checkBlogItemExist], editBlogItem);

@@ -27,4 +27,6 @@ const CommentSchema = new Schema({
 	isApproved: Boolean,
 });
 
+CommentSchema.pre("save", async function (next) {});
+
 module.exports = mongoose.model("Comment", CommentSchema);

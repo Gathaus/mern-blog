@@ -130,3 +130,13 @@
 	font-style: normal;
 	line-height: 1.75em;
 }
+.blog-item-page .carousel-inner{
+	width: 100%;
+	height: 400px!important;
+}
+
+@media only screen and (max-width: 768px) {
+	.blog-item-page .project-description-container {
+		margin-top: 1em;
+	}
+}

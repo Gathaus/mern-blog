@@ -12,9 +12,16 @@ const PortfolioItemSchema = new Schema({
 		type: String,
 		required: true,
 	},
+	shortDescription2: {
+		type: String,
+	},
 	content: {
 		type: String,
 	},
+	date: {
+		type: String,
+	},
+	technologies: [{ type: String }],
 	portfolioTags: [
 		{
 			type: String,
@@ -24,13 +31,15 @@ const PortfolioItemSchema = new Schema({
 	thumbnail: {
 		type: String,
 	},
-	images: {
-		type: String,
-	},
+	images: [
+		{
+			type: String,
+		},
+	],
 
 	links: [
 		{
-			type: String,
+			type: Object,
 		},
 	],
 	comments: [

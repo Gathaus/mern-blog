@@ -18,21 +18,30 @@ class BlogItems extends Component {
 						<div className="projcard-container">
 							{this.props.blogItems.map((blogItem, index) => (
 								<div className="projcard projcard-red" key={index}>
-									<div className="projcard-innerbox"onClick={() => console.log(blogItem._id)}>
-										<img className="projcard-img" src={blogItem.thumbnail} />
-										<div className="projcard-textbox">
-											<div className="projcard-subtitle">{blogItem.title}</div>
-											<div className="projcard-bar"></div>
-											<div className="projcard-description">
-												{blogItem.shortDescription}
-											</div>
-											<div className="projcard-tagbox" key={index}>
-												{blogItem.blogTags.map((tag, index) => (
-													<span className="projcard-tag mt-1" key={index}>{tag}</span>
-												))}
+									<Link to={"blogitem/"+blogItem.slug}>
+										<div
+											className="projcard-innerbox"
+											onClick={() => console.log(blogItem._id)}
+										>
+											<img className="projcard-img" src={blogItem.thumbnail} />
+											<div className="projcard-textbox">
+												<div className="projcard-subtitle">
+													{blogItem.title}
+												</div>
+												<div className="projcard-bar"></div>
+												<div className="projcard-description">
+													{blogItem.shortDescription}
+												</div>
+												<div className="projcard-tagbox" key={index}>
+													{blogItem.blogTags.map((tag, index) => (
+														<span className="projcard-tag mt-1" key={index}>
+															{tag}
+														</span>
+													))}
+												</div>
 											</div>
 										</div>
-									</div>
+									</Link>
 								</div>
 							))}
 
