@@ -15,8 +15,10 @@ class PortfolioItem extends Component {
 		return (
 			<div>
 				<PortfolioItemBody data={this.state}/>
-				<PortfolioItemComments />
-				<PortfolioWriteComment />
+				{/* These are will be added in future updates */}
+				{/* <PortfolioItemComments />
+				<PortfolioWriteComment /> */} 
+				
 			</div>
 		);
 	}

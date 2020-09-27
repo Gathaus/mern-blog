@@ -6,7 +6,9 @@ import {
 	faMapMarkerAlt,
 	faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios"
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class ContactInfo extends Component {
 	constructor(props) {
@@ -16,12 +18,26 @@ class ContactInfo extends Component {
 			email: "",
 			subject: "",
 			message: "",
+			isSubmitted: false,
 		};
 	}
+	notify = () =>
+		toast.success("Your Message Has Been Sent", {
+			position: "bottom-center",
+			autoClose: 5000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+		});
+
 	mySubmitHandler = (event) => {
 		event.preventDefault();
-		console.log(this.state);
-		axios.put("http://localhost:5000/api/contactMessage",this.state);
+		axios.put("http://localhost:5000/api/contactMessage", this.state);
+		this.setState({
+			isSubmitted: true,
+		});
 	};
 
 	myChangeHandler = (event) => {
@@ -113,9 +129,27 @@ class ContactInfo extends Component {
 									></textarea>
 								</div>
 								<div className="contact-button-container">
-									<button type="submit" className="btn btn-dark contact-btn">
+									<button
+										type="submit"
+										className="btn btn-dark contact-btn"
+										onClick={this.notify}
+									>
 										Send a Message
 									</button>
+									{this.state.isSubmitted === true ? (
+										<ToastContainer
+											position="bottom-center"
+											autoClose={5000}
+											hideProgressBar
+											newestOnTop={false}
+											closeOnClick
+											rtl={false}
+											pauseOnFocusLoss
+											draggable
+											pauseOnHover
+											limit={1}
+										/>
+									) : null}
 								</div>
 							</div>
 						</form>

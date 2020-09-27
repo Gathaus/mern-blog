@@ -17,7 +17,7 @@ class FunFacts extends Component {
 						</div>
 						<div className="row">
 							<div className="astrodivider col-md-3">
-								<div class="astrodividermask"></div>
+								<div className="astrodividermask"></div>
 								<span></span>
 							</div>
 						</div>

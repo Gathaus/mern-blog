@@ -96,7 +96,7 @@ const getSinglePortfolioItem = errorWrapper(async (req, res, next) => {
 });
 
 const getAllPortfolioItems = errorWrapper(async (req, res, next) => {
-	const portfolioItem = await PortfolioItem.find( { "content": { $ne: "ERROR" } });
+	const portfolioItem = await PortfolioItem.find( );
 	return res.status(200).json({
 		success: true,
 		data: res.advanceQueryResults,

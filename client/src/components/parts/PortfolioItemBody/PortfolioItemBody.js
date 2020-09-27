@@ -27,15 +27,15 @@ class PortfolioItemBody extends Component {
 				<div className="portfolio-item-body">
 					<div className="container  mt-5">
 						<div className="row">
-							<div className="container">
-								<h2>How to Make a WordPress Plugin Extensible</h2>
+							<div className="container text-center">
+								<h2>{this.props.blogSingleItem.title}</h2>
 							</div>
 						</div>
 					</div>
 
 					<img
 						className="w-100 img-fluid portfolio-item-post-image mt-4"
-						src="https://lmpixels.com/wp/leven-wp/full-width-dark/wp-content/uploads/sites/5/2019/12/blog_post_2_full.jpg"
+						src={this.props.blogSingleItem.thumbnail}
 						alt="First slide"
 						onClick={() => console.log(this.props.data.match.url)}
 					/>
