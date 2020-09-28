@@ -19,6 +19,10 @@ app.use(cors());
 
 app.use("/api", routes);
 
-app.listen(PORT, () => {
+
+app.use(express.static("../client/build"))
+app.listen(PORT || 5000, () => {
 	console.log(`App started on ${PORT} `);
 });
+
+console.log(process.env.PORT)

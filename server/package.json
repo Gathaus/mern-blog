@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "cd ../client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build"
   },
   "keywords": [
     "express",
@@ -25,5 +28,9 @@
     "mongoose": "^5.10.5",
     "nodemailer": "^6.4.11",
     "slugify": "^1.4.5"
+  },
+  "engines":{
+    "node":"12.x",
+    "npm":"6.14.5"
   }
 }
