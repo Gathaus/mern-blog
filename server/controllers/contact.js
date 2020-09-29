@@ -25,6 +25,7 @@ const contactMessage = errorWrapper(async (req, res, next) => {
 			message: "Email Sent",
 		});
 	} catch (err) {
+		console.log(err)
 		return next(new CustomError("Email Could Not Be Sent", 500));
 	}
 	console.log(req.body);
