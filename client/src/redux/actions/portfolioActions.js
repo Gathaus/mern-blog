@@ -39,7 +39,7 @@ export function portfolioGetSingleItemSuccess(portfolioSingleItem) {
 
 export function portfolioGetSingleItem(portfolioSlugName) {
 	return function (dispatch) {
-		let url = "http://localhost:5000/api/portfolio/" + portfolioSlugName;
+		let url = "/api/portfolio/" + portfolioSlugName;
 		return axios(url).then((response) => {
 			console.log(response.data.data)
 			dispatch(portfolioGetSingleItemSuccess(response.data.data));
@@ -60,7 +60,7 @@ export function portfolioGetCategoriesSuccess(portfolioCategories) {
 
 export function portfolioGetCategories() {
 	return function (dispatch) {
-		let url = "http://localhost:5000/api/blog/blogCategories";
+		let url = "/api/blog/blogCategories";
 		return axios(url).then((response) => {
 			dispatch(
 				portfolioGetCategoriesSuccess(
