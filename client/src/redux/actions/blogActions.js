@@ -23,7 +23,7 @@ export function blogGetCategoriesSuccess(blogCategories) {
 }
 export function blogGetItems(blogCategoryName) {
 	return function (dispatch) {
-		let url = "http://localhost:5000/api/blog";
+		let url = "/api/blog";
 		if (blogCategoryName) {
 			blogCategoryName == "All"
 				? (url = url)
@@ -44,7 +44,7 @@ export function blogGetSingleItemSuccess(blogSingleItem) {
 
 export function blogGetSingleItem(blogSlugName) {
 	return function (dispatch) {
-		let url = "http://localhost:5000/api/blog/" + blogSlugName + "/getSingleblogItem";
+		let url = "/api/blog/" + blogSlugName + "/getSingleblogItem";
 		return axios(url).then((response) => {
 			console.log(response.data)
 			dispatch(blogGetSingleItemSuccess(response.data.data))
@@ -56,7 +56,7 @@ export function blogGetSingleItem(blogSlugName) {
 }
 export function blogGetCategories() {
 	return function (dispatch) {
-		let url = "http://localhost:5000/api/blog/blogCategories";
+		let url = "/api/blog/blogCategories";
 		return axios(url).then((response) => {
 			console.log(response.data.data[0].blogItemCategories);
 

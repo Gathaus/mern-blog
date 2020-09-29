@@ -34,7 +34,7 @@ class ContactInfo extends Component {
 
 	mySubmitHandler = (event) => {
 		event.preventDefault();
-		axios.put("http://localhost:5000/api/contactMessage", this.state);
+		axios.put("/api/contactMessage", this.state);
 		this.setState({
 			isSubmitted: true,
 		});
