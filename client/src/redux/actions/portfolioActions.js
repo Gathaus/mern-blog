@@ -18,7 +18,7 @@ export function portfolioGetItemsSuccess(portfolioItems) {
 
 export function portfolioGetItems(portfolioCategoryName) {
 	return function (dispatch) {
-		let url = "http://localhost:5000/api/portfolio/";
+		let url = "/api/portfolio/";
 		if (portfolioCategoryName) {
 			portfolioCategoryName == "All"
 				? (url = url)
