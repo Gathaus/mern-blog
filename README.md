@@ -1,3 +1,3 @@
 # react-blog
 
-React portfolio and blog page
+MERN stack blog and portfolio website
