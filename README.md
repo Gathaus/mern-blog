@@ -1,3 +1,3 @@
-# react-blog
+# mern-blog
 
 MERN stack blog and portfolio website
