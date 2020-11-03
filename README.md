@@ -1,3 +1,3 @@
-# mern-blog
+# Complete-mern-blog
 
 MERN stack blog and portfolio website
